@@ -1,0 +1,48 @@
+### UWP FEATURES ### - https://docs.microsoft.com/en-us/windows/apps/desktop/choose-your-platform
+https://docs.microsoft.com/en-us/windows/uwp/develop/
+	- Deployment:
+		- Windows 10 (PC)
+		- Xbox One
+		- HoloLens
+		- IoT
+		- Surface Hub
+		- (Windows Phone 8)
+		- Basically everything that runs Windows 10
+	- Communication: - https://docs.microsoft.com/en-us/windows/uwp/devices-sensors/enable-device-capabilities
+		- USB
+		- Bluetooth
+		- Internet
+		- NFC
+	- Input:
+		- Touch pen
+		- Gamepad
+		- Mouse
+		- Keyboard
+		- more???
+	- Mischelanious: - https://docs.microsoft.com/en-us/windows/uwp/develop/
+		- Modern accessibility support (such as screen readers)
+		- High DPI
+		- Native C++
+		- Rich text data capabilities
+		- Inking support
+		- Secure execution via application containers
+		- DirectX (9?)
+		- Capture, play back, edit photos-videos-audio
+		- Contacts, My People, Email and calendar
+		- Maps and location
+		- Machine Learning
+		- Threading
+		- 3-D printing
+		- Battery Info
+
+### UWP LIMITED SUPPORT ### - https://docs.microsoft.com/en-us/windows/apps/desktop/choose-your-platform
+	- Multiple window support
+	- Platform support for input validation
+	- Windows 7 not supported
+	- Some Windows Runtime APIs require specific minimum windows 10 versions
+	- Full platform support and shell integration
+	- Direct acces to all files on disk
+	- ADO.NET
+	- intensive file I/O
+	- Local network loopback support
+	
