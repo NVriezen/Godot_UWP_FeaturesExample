@@ -12,3 +12,4 @@ data_*/
 gpacker.bat
 Password.txt
 UWPCertificate.pfx
+*.appx
