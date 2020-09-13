@@ -1,3 +1,16 @@
+### GODOT IMPLEMENTED UWP FEATURES
+	- Deployment
+	- Communication
+		- Bluetooth???
+	- Input
+		- Touch Pen
+		- Gamepad
+		- Mouse
+		- Keyboard
+		- Accelerometer
+		- Gyrometer
+		- Magnetometer
+
 ### UWP FEATURES ### - https://docs.microsoft.com/en-us/windows/apps/desktop/choose-your-platform
 https://docs.microsoft.com/en-us/windows/uwp/develop/
 	- Deployment:
@@ -18,7 +31,9 @@ https://docs.microsoft.com/en-us/windows/uwp/develop/
 		- Gamepad
 		- Mouse
 		- Keyboard
-		- more???
+		- Accelerometer
+		- Gyrometer
+		- Magnetometer
 	- Mischelanious: - https://docs.microsoft.com/en-us/windows/uwp/develop/
 		- Modern accessibility support (such as screen readers)
 		- High DPI

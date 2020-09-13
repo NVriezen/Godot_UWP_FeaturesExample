@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/ChargerSport-w5g8.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/ClickingMouse.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/KeyboardKeys.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/TouchingScreen.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/GamepadButtons.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/MousePen.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+extra_spacing_space = 5
+font_data = ExtResource( 1 )
+
+[node name="InputScene" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.180392, 0.0666667, 0.282353, 1 )
+
+[node name="TouchingScreen" type="RichTextLabel" parent="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 1010.0
+margin_bottom = 57.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Are you touching the screen?: NO"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MousePen" type="RichTextLabel" parent="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 1010.0
+margin_bottom = 107.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Mouse Info"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickingMouse" type="RichTextLabel" parent="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 110.0
+margin_right = 1010.0
+margin_bottom = 180.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Mouse Buttons Pressed: NONE"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyboardKeys" type="RichTextLabel" parent="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 200.0
+margin_right = 1010.0
+margin_bottom = 270.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Keyboard Keys Pressed:"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GamepadButtons" type="RichTextLabel" parent="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 290.0
+margin_right = 1010.0
+margin_bottom = 360.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Gamepad"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

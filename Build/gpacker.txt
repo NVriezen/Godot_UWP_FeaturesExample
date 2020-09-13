@@ -1,0 +1,65 @@
+### GPacker to help pack a working UWP AppX ###
+# Set the variables under the setup label below
+# Rename this file from gpacker.txt to gpacker.bat
+# Drop your broken godot exported .appx onto gpacker.bat and voila!
+
+@ECHO OFF
+
+set "params=%*"
+cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del "%temp%\getadmin.vbs" ) && fsutil dirty query %systemdrive% 1>nul 2>nul || (  echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/k cd ""%~sdp0"" && %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
+
+:setup
+	@ECHO OFF
+	SET filename="%~1"
+	SET output=%filename%
+	SET winrar="path to winrar or 7zip here"
+	SET makeappx="path to makeappx.exe here"
+	SET signtool="path to signtool.exe here"
+	SET certificate="path to the certificate .pfx here"
+	SET temp="path to temporary folder here (I just used temp)"
+	SET hash="hash option here (type SHA256 if you want the default)"
+	SET password="type you password here. if you leave it empty it will ask for one while packing"
+	GOTO run
+	
+:help
+	ECHO Please drop your Godot exported .appx on this file
+	PAUSE
+	GOTO :eof
+	
+:run
+	IF /i "%~1" EQU "" GOTO help
+	IF /i "%~1" EQU "clean" GOTO clean
+	IF /i "%~1" EQU "pack" GOTO setfilename
+	GOTO pack
+
+:clean
+	ECHO [91m"Cleaning..."[0m
+	IF EXIST %temp% RD /S /Q %temp%
+	IF /i "%~1" EQU "clean" GOTO terminate
+	GOTO :eof
+
+:setfilename
+	SET filename="%~2"
+	SET output=%filename%
+	GOTO pack
+
+:pack
+	ECHO [93m"Start Packing..."[0m
+	IF "%password%" EQU "" CALL :setpassword
+	CALL :clean
+	MD %temp%
+	%winrar% x %filename% %temp%
+	%makeappx% pack /v /h %hash% /d %temp% /p %output%.appx 
+	%signtool% sign /fd %hash% /a /f %certificate% /p "%password%" %output%.appx
+	CALL :clean
+	ECHO [92m"Done Packing"[0m
+	PAUSE
+	GOTO terminate
+
+:setpassword
+	SET /p password=[93m"Certificate Password: "[0m
+	GOTO :eof
+	
+:terminate
+	ECHO [95m"Closing window..."[0m
+	exit
